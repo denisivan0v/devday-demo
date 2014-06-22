@@ -1,4 +1,4 @@
-devday-demo
+DevDay June 2014 Demo App
 ===========
 
-DevDay Demo App
+Talk info is here: http://devday.ru/report/105
