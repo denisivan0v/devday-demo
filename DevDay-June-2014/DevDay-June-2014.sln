@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDay.Demo.OrderValidation
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDay.Demo.WebApp", "DevDay.Demo.WebApp\DevDay.Demo.WebApp.csproj", "{758D1E75-A1CD-4858-B1A4-7856C5E20D6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDay.Demo.Sales", "DevDay.Demo.Sales\DevDay.Demo.Sales.csproj", "{51ACD60F-4246-4191-A0EC-207AB64FD0BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{758D1E75-A1CD-4858-B1A4-7856C5E20D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{758D1E75-A1CD-4858-B1A4-7856C5E20D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{758D1E75-A1CD-4858-B1A4-7856C5E20D6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51ACD60F-4246-4191-A0EC-207AB64FD0BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51ACD60F-4246-4191-A0EC-207AB64FD0BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51ACD60F-4246-4191-A0EC-207AB64FD0BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51ACD60F-4246-4191-A0EC-207AB64FD0BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
