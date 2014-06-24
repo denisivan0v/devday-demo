@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNet.SignalR;
 using Microsoft.Owin.Cors;
 using Microsoft.Owin.Hosting;
+using Microsoft.ServiceBus.Messaging;
 
 using Owin;
 
@@ -42,7 +43,8 @@ namespace DevDay.Demo.Sales
     {
         public void CreateOrder(string orderNumber)
         {
-            
+            var orderForValidationSender = new OrderForValidationSender(MessagingFactory.Create());
+            orderForValidationSender.Send(orderNumber);
         }
     }
 }

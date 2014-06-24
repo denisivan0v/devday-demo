@@ -24,8 +24,8 @@ namespace DevDay.Demo.OrderValidations
         {
             Console.WriteLine("Message received...");
 
-            var hub = GlobalHost.ConnectionManager.GetHubContext<SignalRHub>();
-            hub.Clients.All.addMessage("message from server", message);
+            var hub = GlobalHost.ConnectionManager.GetHubContext<ValidationsHub>();
+            hub.Clients.All.sendStatus("message from server", message.GetBody<string>());
         }
     }
 }

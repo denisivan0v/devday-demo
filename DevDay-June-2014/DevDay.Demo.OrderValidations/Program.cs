@@ -42,7 +42,7 @@ namespace DevDay.Demo.OrderValidations
     }
 
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Reviewed. Suppression is OK here.")]
-    public class SignalRHub : Hub
+    public class ValidationsHub : Hub
     {
         public void SendStatus(string status)
         {
