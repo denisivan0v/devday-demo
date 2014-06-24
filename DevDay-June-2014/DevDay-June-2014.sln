@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDay.Demo.WebApp", "DevDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDay.Demo.Sales", "DevDay.Demo.Sales\DevDay.Demo.Sales.csproj", "{51ACD60F-4246-4191-A0EC-207AB64FD0BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDay.Demo.Messages", "DevDay.Demo.Messages\DevDay.Demo.Messages.csproj", "{F15CCB21-0CAA-4D8F-9EC8-5425B3BBFB24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{51ACD60F-4246-4191-A0EC-207AB64FD0BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51ACD60F-4246-4191-A0EC-207AB64FD0BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51ACD60F-4246-4191-A0EC-207AB64FD0BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F15CCB21-0CAA-4D8F-9EC8-5425B3BBFB24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F15CCB21-0CAA-4D8F-9EC8-5425B3BBFB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F15CCB21-0CAA-4D8F-9EC8-5425B3BBFB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F15CCB21-0CAA-4D8F-9EC8-5425B3BBFB24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

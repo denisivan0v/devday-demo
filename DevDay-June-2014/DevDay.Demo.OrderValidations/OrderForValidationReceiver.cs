@@ -1,5 +1,7 @@
 ﻿using System;
 
+using DevDay.Demo.Messages;
+
 using Microsoft.AspNet.SignalR;
 using Microsoft.ServiceBus.Messaging;
 
@@ -23,9 +25,10 @@ namespace DevDay.Demo.OrderValidations
         private static void Receive(BrokeredMessage message)
         {
             Console.WriteLine("Message received...");
+            var result = message.GetBody<OrderValidationMessage>();
 
             var hub = GlobalHost.ConnectionManager.GetHubContext<ValidationsHub>();
-            hub.Clients.All.sendStatus("message from server", message.GetBody<string>());
+            hub.Clients.All.sendStatus(result.ValidationResult, result.Message);
         }
     }
 }

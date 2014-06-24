@@ -44,9 +44,8 @@ namespace DevDay.Demo.OrderValidations
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Reviewed. Suppression is OK here.")]
     public class ValidationsHub : Hub
     {
-        public void SendStatus(string status)
+        public void SendStatus(string validationResult, string message)
         {
-            Clients.All.addMessage("message from server", DateTime.Now);
         }
     }
 }

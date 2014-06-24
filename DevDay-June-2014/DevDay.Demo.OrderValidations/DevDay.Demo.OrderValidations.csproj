@@ -95,6 +95,12 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DevDay.Demo.Messages\DevDay.Demo.Messages.csproj">
+      <Project>{F15CCB21-0CAA-4D8F-9EC8-5425B3BBFB24}</Project>
+      <Name>DevDay.Demo.Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

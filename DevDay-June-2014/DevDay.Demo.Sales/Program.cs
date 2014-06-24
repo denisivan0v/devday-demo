@@ -43,8 +43,8 @@ namespace DevDay.Demo.Sales
     {
         public void CreateOrder(string orderNumber)
         {
-            var orderForValidationSender = new OrderForValidationSender(MessagingFactory.Create());
-            orderForValidationSender.Send(orderNumber);
+            var orderForValidationSender = new OrderCreationService(MessagingFactory.Create());
+            orderForValidationSender.Create(orderNumber);
         }
     }
 }

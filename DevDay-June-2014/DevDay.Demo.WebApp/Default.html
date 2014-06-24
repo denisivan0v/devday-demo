@@ -17,55 +17,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#" area = "" class = "navbar-brand">Home</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>Item 1</li>
-                    <li>Item 2</li>
-                    <li>Item 3</li>
-                </ul>
+                <a href="Default.html" class="navbar-brand">Home</a>
             </div>
         </div>
     </div>
     <div class="container body-content">
-        <!-- Body content here -->
-
-        <div id="discussion"></div>
-        <input id="createOrder" type="button" value="Send" />
-        
         <div class="jumbotron">
-            <h1>ASP.NET</h1>
-            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-            <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+            <h1>Dev Day Demo</h1>
+            <p class="lead">
+                This is demo app serves as example of distributed app
+                <br/>
+                Example domain contains two bounded contexts: Sales and Order validations
+            </p>
+            <p><a href="CreateOrder.html" class="btn btn-primary btn-lg">Create new order &raquo;</a></p>
         </div>
 
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Getting started</h2>
-                <p>
-                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                    enables a clean separation of concerns and gives you full control over markup
-                    for enjoyable, agile development.
-                </p>
-                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Get more libraries</h2>
-                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Web Hosting</h2>
-                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-            </div>
-        </div>
-        
         <hr />
+
         <footer>
-            <p>Dev Day June 2014</p>
-            <p>&copy; @denisivanov</p>
+            <p><a href="http://twitter.com/denisivanov">@denisivanov</a>, June 2014</p>
         </footer>
     </div>
 
@@ -73,42 +43,6 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/respond.min.js"></script>
     <script src="Scripts/jquery.signalR-2.1.0.min.js"></script>
-
-    <!--Add script to update the page and send messages.-->
-    <script type="text/javascript">
-        $(function () {
-            var validationsHubConnection = $.hubConnection("http://localhost:8081");
-            var salesHubConnection = $.hubConnection("http://localhost:8082");
-
-            var validationsHub = validationsHubConnection.createHubProxy('validationsHub');
-            var salesHub = salesHubConnection.createHubProxy('salesHub');
-
-            // Create a function that the hub can call to broadcast messages.
-            validationsHub.on('sendStatus', function (message) {
-                // Html encode display name and message.
-                var encodedName = $('<div />').text(name).html();
-                var encodedMsg = $('<div />').text(message).html();
-                // Add the message to the page.
-                $('#discussion').append('<li><strong>' + encodedName + '</strong>:&nbsp;&nbsp;'
-                    + encodedMsg + '</li>');
-            });
-
-            // Start the connection.
-            validationsHubConnection.start().done(function() {
-                 console.log("validationsHubConnection started");
-            });
-
-            salesHubConnection.start().done(function () {
-                console.log("salesHubConnection started");
-
-                $('#createOrder').click(function () {
-                    // Call the Send method on the hub.
-                    salesHub.invoke('createOrder', $('#message').val());
-                    // Clear text box and reset focus for next comment.
-                    $('#message').val('').focus();
-                });
-            });
-        });
-    </script>
+    <script src="Scripts/validationsHub.js"></script>
 </body>
 </html>
