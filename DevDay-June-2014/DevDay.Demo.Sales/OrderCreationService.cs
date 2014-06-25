@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 using DevDay.Demo.Messages;
 
@@ -17,22 +18,19 @@ namespace DevDay.Demo.Sales
 
         public void Create(string orderNumber)
         {
-            var result = new OrderValidationMessage();
-            if (orderNumber.ToUpper().Contains("INVALID"))
-            {
-                result.ValidationResult = "error";
-                result.Message = string.Format("Order '{0}' did't pass validation checks", orderNumber);
-            }
-            else
-            {
-                result.ValidationResult = "success";
-                result.Message = string.Format("Order '{0}' is valid", orderNumber);
-            }
+            DoCreate(orderNumber);
 
+            var orderCreatedEvent = new OrderCreatedEvent { OrderNumber = orderNumber };
+            
             var ordersQueueClient = _messagingFactory.CreateQueueClient("orders");
-            ordersQueueClient.Send(new BrokeredMessage(result));
+            ordersQueueClient.Send(new BrokeredMessage(orderCreatedEvent));
 
-            Console.WriteLine("Message sent...");
+            Console.WriteLine("OrderCreated event sent...");
+        }
+
+        private void DoCreate(string orderNumber)
+        {
+            Thread.Sleep(TimeSpan.FromSeconds(1));
         }
     }
 }

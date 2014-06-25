@@ -10,6 +10,7 @@ namespace DevDay.Demo.OrderValidations
     public class OrderForValidationReceiver
     {
         private readonly MessagingFactory _messagingFactory;
+        private readonly OrderValidator _orderValidator = new OrderValidator();
 
         public OrderForValidationReceiver(MessagingFactory messagingFactory)
         {
@@ -22,13 +23,18 @@ namespace DevDay.Demo.OrderValidations
             queueClient.OnMessage(Receive);
         }
 
-        private static void Receive(BrokeredMessage message)
+        private void Receive(BrokeredMessage message)
         {
-            Console.WriteLine("Message received...");
-            var result = message.GetBody<OrderValidationMessage>();
+            Console.WriteLine("OrderCreated event received...");
+            var orderCreatedEvent = message.GetBody<OrderCreatedEvent>();
+
+            string validationMessage;
+            var validationResult = _orderValidator.Validate(orderCreatedEvent.OrderNumber, out validationMessage)
+                                       ? "success"
+                                       : "error";
 
             var hub = GlobalHost.ConnectionManager.GetHubContext<ValidationsHub>();
-            hub.Clients.All.sendStatus(result.ValidationResult, result.Message);
+            hub.Clients.All.sendStatus(validationResult, validationMessage);
         }
     }
 }
