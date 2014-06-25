@@ -7,11 +7,11 @@
         $('#createOrder').click(function () {
             var orderNumber = $('#orderNumber').val();
             salesHub.invoke('createOrder', orderNumber).done(function () {
-                $('.body-content').prepend(
-                    '<div class="alert alert-info alert-dismissable">' +
-                        '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                        'Order <strong>' + orderNumber + '</strong> created successfully' +
-                    '</div>');
+                $('.top-right').notify({
+                    type: 'info',
+                    message: { text: "Order '" + orderNumber + "' created successfully" },
+                    fadeOut: { enabled: true, delay: 1000 },
+                }).show();
             });
         });
     });
