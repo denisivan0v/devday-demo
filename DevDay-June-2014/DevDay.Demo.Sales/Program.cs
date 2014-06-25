@@ -15,10 +15,6 @@ namespace DevDay.Demo.Sales
     {
         public static void Main(string[] args)
         {
-            // This will *ONLY* bind to localhost, if you want to bind to all addresses
-            // use http://*:8080 to bind to all addresses. 
-            // See http://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx 
-            // for more information.
             const string Url = "http://localhost:8082";
             using (WebApp.Start(Url))
             {
