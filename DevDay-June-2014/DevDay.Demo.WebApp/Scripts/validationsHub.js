@@ -16,7 +16,15 @@
         }).show();
     });
 
-    validationsHubConnection.start().done(function () {
-        console.log("validationsHubConnection started");
-    });
+    validationsHubConnection.start()
+        .done(function() {
+            console.log("validationsHubConnection started");
+        })
+        .fail(function() {
+            $('.top-right').notify({
+                type: 'danger',
+                message: { text: 'Could not connect to validations hub' },
+                fadeOut: { enabled: true, delay: 3000 },
+            }).show();
+        });
 });
