@@ -6,6 +6,8 @@ using Microsoft.Owin.Cors;
 using Microsoft.Owin.Hosting;
 using Microsoft.ServiceBus.Messaging;
 
+using NLog;
+
 using Owin;
 
 namespace DevDay.Demo.OrderValidations
@@ -13,15 +15,20 @@ namespace DevDay.Demo.OrderValidations
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Reviewed. Suppression is OK here.")]
     public class Program
     {
+        private const string Url = "http://localhost:8081";
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         public static void Main(string[] args)
         {
-            const string Url = "http://localhost:8081";
             using (WebApp.Start(Url))
             {
+                Logger.Info("Server running on {0}", Url);
+                
                 var receiver = new OrderForValidationReceiver(MessagingFactory.Create());
                 receiver.StartReceiving();
-                
-                Console.WriteLine("Server running on {0}", Url);
+
+                Logger.Info("Waiting for the incoming messages from the Service Bus");
+
                 Console.ReadLine();
             }
         }

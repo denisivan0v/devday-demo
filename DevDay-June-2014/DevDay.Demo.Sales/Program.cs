@@ -6,6 +6,8 @@ using Microsoft.Owin.Cors;
 using Microsoft.Owin.Hosting;
 using Microsoft.ServiceBus.Messaging;
 
+using NLog;
+
 using Owin;
 
 namespace DevDay.Demo.Sales
@@ -13,12 +15,14 @@ namespace DevDay.Demo.Sales
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Reviewed. Suppression is OK here.")]
     public class Program
     {
+        private const string Url = "http://localhost:8082";
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         public static void Main(string[] args)
         {
-            const string Url = "http://localhost:8082";
             using (WebApp.Start(Url))
             {
-                Console.WriteLine("Server running on {0}", Url);
+                Logger.Info("Server running on {0}", Url);
                 Console.ReadLine();
             }
         }
