@@ -41,8 +41,15 @@ namespace DevDay.Demo.Sales
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Reviewed. Suppression is OK here.")]
     public class SalesHub : Hub
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         public void CreateOrder(string orderNumber)
         {
+            Logger.Info("Order creation request received. Connection Id={0}, client origin={1}, user agent={2}",
+                        Context.ConnectionId,
+                        Context.Request.Headers["Origin"],
+                        Context.Request.Headers["User-Agent"]);
+
             var orderForValidationSender = new OrderCreationService(MessagingFactory.Create());
             orderForValidationSender.Create(orderNumber);
         }
