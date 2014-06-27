@@ -1,5 +1,5 @@
 ﻿$(function () {
-    var validationsHubConnection = $.hubConnection("http://localhost:8081");
+    var validationsHubConnection = $.hubConnection("http://uk-rnd-168.2gis.local:8081");
     var validationsHub = validationsHubConnection.createHubProxy('validationsHub');
     validationsHub.on('sendStatus', function (validationResult, message) {
         var alertType;

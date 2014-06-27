@@ -15,7 +15,7 @@ namespace DevDay.Demo.OrderValidations
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Reviewed. Suppression is OK here.")]
     public class Program
     {
-        private const string Url = "http://localhost:8081";
+        private const string Url = "http://uk-rnd-168.2gis.local:8081";
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         public static void Main(string[] args)

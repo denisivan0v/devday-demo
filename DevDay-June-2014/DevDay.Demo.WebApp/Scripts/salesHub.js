@@ -1,5 +1,5 @@
 ﻿$(function () {
-    var salesHubConnection = $.hubConnection("http://localhost:8082");
+    var salesHubConnection = $.hubConnection("http://uk-rnd-168.2gis.local:8082");
     var salesHub = salesHubConnection.createHubProxy('salesHub');
     salesHubConnection.start()
         .done(function() {
